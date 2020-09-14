@@ -1,30 +1,37 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { GifGridItem } from './GifGridItem';
 
 export const GifGrid = ({ category }) => {
+  const [images, setImages] = useState([]);
+
+  useEffect(() => {
+    getGifs();
+  }, []);
+
   const getGifs = async () => {
-    try {
-      const url =
-        'https://api.giphy.com/v1/gifs/search?api_key=anyoG6FgTEQ3Fx2KywvgvcZGe1b9Bv1Y&q=Popeye&limit=10';
-      const resp = await fetch(url);
-      const { data } = await resp.json();
+    const url =
+      'https://api.giphy.com/v1/gifs/search?api_key=anyoG6FgTEQ3Fx2KywvgvcZGe1b9Bv1Y&q=sakura&limit=10';
+    const resp = await fetch(url);
+    const { data } = await resp.json();
 
-      const gifs = data.map((img) => {
-        return {
-          id: img.id,
-          title: img.title,
-          url: img.images?.downsized_medium.url,
-        };
-      });
+    const gifs = data.map((img) => {
+      return {
+        id: img.id,
+        title: img.title,
+        url: img.images?.downsized_medium.url,
+      };
+    });
 
-      console.log(gifs);
-    } catch (e) {
-      console.log(e);
-    }
+    console.log(gifs);
+    setImages(gifs);
   };
-  getGifs();
+
   return (
     <>
       <h3>{category}</h3>
+      {images.map((img) => (
+        <GifGridItem key={img.id} {...img} />
+      ))}
     </>
   );
 };
