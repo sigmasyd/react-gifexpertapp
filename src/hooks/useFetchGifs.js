@@ -9,14 +9,12 @@ export const useFetchGifs = (category) => {
 
   // se usa use effect para evitar que cada vez que un estado cambie... se renderize todo
   useEffect(() => {
-    setTimeout(() => {
-      getGifs(category).then((imgs) =>
-        setstate({
-          data: imgs,
-          loading: false,
-        })
-      );
-    }, 3000);
+    getGifs(category).then((imgs) =>
+      setstate({
+        data: imgs,
+        loading: false,
+      })
+    );
   }, [category]);
   return state;
 };
