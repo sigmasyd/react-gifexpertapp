@@ -34,6 +34,12 @@ exports[`Pruebas sobre el componente <GifGrid /> debe mostrar items cuando se ca
       title="Cualquier cosas"
       url="https://asdasdas"
     />
+    <GifGridItem
+      id="DEF"
+      key="DEF"
+      title="Cualquier cosa"
+      url="https://asdasdas"
+    />
   </div>
 </Fragment>
 `;
