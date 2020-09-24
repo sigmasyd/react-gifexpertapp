@@ -17,29 +17,3 @@ exports[`Pruebas sobre el componente <GifGrid /> debe mostrar el componente corr
   />
 </Fragment>
 `;
-
-exports[`Pruebas sobre el componente <GifGrid /> debe mostrar items cuando se cargan imagenes useFetchGifs 1`] = `
-<Fragment>
-  <h3
-    className="animate__animated animate__fadeIn"
-  >
-    sakura
-  </h3>
-  <div
-    className="card-grid"
-  >
-    <GifGridItem
-      id="ABC"
-      key="ABC"
-      title="Cualquier cosas"
-      url="https://asdasdas"
-    />
-    <GifGridItem
-      id="DEF"
-      key="DEF"
-      title="Cualquier cosa"
-      url="https://asdasdas"
-    />
-  </div>
-</Fragment>
-`;
